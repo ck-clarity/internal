@@ -1,6 +1,7 @@
 package clarity.wtf;
 
 import clarity.wtf.modules.ModuleManager;
+import clarity.wtf.modules.utils.Fonts;
 import org.greenrobot.eventbus.EventBus;
 import org.lwjgl.opengl.Display;
 
@@ -20,6 +21,7 @@ public class Clarity {
     public void init() {
         ModuleManager moduleManager = new ModuleManager();
         Display.setTitle(name + " | " + ver);
+        Fonts.INSTANCE.setup();
         moduleManager.initModule();
     }
 }

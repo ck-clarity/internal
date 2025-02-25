@@ -1,5 +1,8 @@
 package net.minecraft.client.multiplayer;
 
+import clarity.wtf.Clarity;
+import clarity.wtf.events.AttackEvent;
+import clarity.wtf.events.KeyPressEvent;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -435,9 +438,13 @@ public class PlayerControllerMP
     {
         return new EntityPlayerSP(this.mc, worldIn, this.netClientHandler, statWriter);
     }
-
+    // idk this part looks pretty interesting to me JOSHIE
     public void attackEntity(EntityPlayer playerIn, Entity targetEntity)
     {
+        AttackEvent event = new AttackEvent(targetEntity);
+        if( Clarity.getInstance().eventBus.hasSubscriberForEvent(AttackEvent.class)) {
+            Clarity.getInstance().eventBus.post(new AttackEvent(targetEntity));
+        }
         this.syncCurrentPlayItem();
         this.netClientHandler.addToSendQueue(new C02PacketUseEntity(targetEntity, C02PacketUseEntity.Action.ATTACK));
 
