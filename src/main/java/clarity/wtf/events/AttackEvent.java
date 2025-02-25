@@ -1,18 +1,13 @@
-/**
- * Not sure how to implement it but I tried
- */
 package clarity.wtf.events;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 import net.minecraft.entity.Entity;
-
+//note to joshie man.... this is how u do attack event...
+@Getter
+@Setter
+@AllArgsConstructor
 public class AttackEvent {
-    private final Entity target;
-
-    public AttackEvent(Entity target) {
-        this.target = target;
-    }
-
-    public Entity getTarget() {
-        return target;
-    }
+    private Entity targetEntity;
 }

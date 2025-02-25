@@ -47,3 +47,5 @@ bin/
 ### Mac OS ###
 .DS_Store
 /run
+/saves
+usercache.json

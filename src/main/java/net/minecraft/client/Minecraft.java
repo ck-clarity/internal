@@ -199,7 +199,7 @@ public class Minecraft implements IThreadListener, IPlayerUsage
     private final PropertyMap twitchDetails;
     private final PropertyMap profileProperties;
     private ServerData currentServerData;
-    private TextureManager renderEngine;
+    public TextureManager renderEngine;
     private static Minecraft theMinecraft;
     public PlayerControllerMP playerController;
     private boolean fullscreen;
@@ -257,12 +257,12 @@ public class Minecraft implements IThreadListener, IPlayerUsage
     private boolean integratedServerIsRunning;
     public final Profiler mcProfiler = new Profiler();
     private long debugCrashKeyPressTime = -1L;
-    private IReloadableResourceManager mcResourceManager;
+    public IReloadableResourceManager mcResourceManager;
     private final IMetadataSerializer metadataSerializer_ = new IMetadataSerializer();
     private final List<IResourcePack> defaultResourcePacks = Lists.<IResourcePack>newArrayList();
     private final DefaultResourcePack mcDefaultResourcePack;
     private ResourcePackRepository mcResourcePackRepository;
-    private LanguageManager mcLanguageManager;
+    public LanguageManager mcLanguageManager;
     private IStream stream;
     private Framebuffer framebufferMc;
     private TextureMap textureMapBlocks;
