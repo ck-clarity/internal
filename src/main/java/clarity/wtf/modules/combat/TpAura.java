@@ -4,6 +4,7 @@ import clarity.wtf.events.TickEvent;
 import clarity.wtf.modules.Category;
 import clarity.wtf.modules.Module;
 import clarity.wtf.modules.ModuleInfo;
+import clarity.wtf.modules.ModuleManager;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -18,14 +19,21 @@ import java.util.Comparator;
 @ModuleInfo(name = "TpAura", description = "Teleports around entities while attacking", category = Category.COMBAT)
 public class TpAura extends Module {
     private long lastAttackTime;
+    private int ticks = 0;
     private EntityLivingBase target;
-    
-    private static final int ATTACK_DELAY = 100; // 10 CPS default
-    private static final float RANGE = 6.0f;
-    private static final int TP_POINTS = 12;
+
+    public static final int MAX_TICKS = 0;
+    private static final int ATTACK_DELAY = 0;
+    private static final float RANGE = 50.0f;
+    private static final int TP_POINTS = 60;
 
     public TpAura() {
         super("TpAura", "Teleports around entities while attacking", Category.COMBAT);
+    }
+
+    @Override
+    public void onEnable() {
+        ticks = 0;
     }
 
     @Subscribe
@@ -41,14 +49,14 @@ public class TpAura extends Module {
         target = mc.theWorld.getEntities(EntityLivingBase.class, entity -> 
             entity != mc.thePlayer && 
             entity.isEntityAlive() && 
-            (!(entity instanceof EntitySheep)) &&
+            ((entity instanceof EntitySheep)) && entity.isEntityAlive() &&
             mc.thePlayer.getDistanceToEntity(entity) <= RANGE
         ).stream().min(Comparator.comparingDouble(entity -> 
             mc.thePlayer.getDistanceToEntity(entity))).orElse(null);
 
         if (target == null) return;
 
-        double radius = 3.0;
+        double radius = (Math.random() * 10) + 1;
         double randomAngle = Math.random() * Math.PI * 2;
         
         double x = target.posX + (radius * Math.cos(randomAngle));
@@ -75,6 +83,12 @@ public class TpAura extends Module {
         }
 
         lastAttackTime = currentTime;
+        if (MAX_TICKS != 0) {
+                ticks++;
+                if (ticks >= MAX_TICKS) {
+                    ModuleManager.getModuleByName("TpAura").setEnabled(false);
+                }
+        }
     }
 
     private float[] getRotations(EntityLivingBase entity) {
