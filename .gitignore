@@ -47,3 +47,9 @@ bin/
 ### Mac OS ###
 .DS_Store
 /run
+saves/New World/data/Mineshaft.dat
+*.dat
+*.dat_old
+*.mca
+*.lock
+*.dat_mcr

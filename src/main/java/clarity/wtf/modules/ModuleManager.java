@@ -22,6 +22,7 @@ public class ModuleManager {
         getModuleByName("Music").setBind(Keyboard.KEY_P);
         getModuleByName("Lawnmower").setBind(Keyboard.KEY_K);
         getModuleByName("Criticals").setBind(Keyboard.KEY_C);
+        getModuleByName("TpAura").setBind(Keyboard.KEY_X);
     }
 
     private void registerModules() {
