@@ -1,4 +1,4 @@
-package clarity.wtf.modules.utils;
+package clarity.gay.modules.utils;
 
 
 import net.minecraft.client.renderer.GlStateManager;
@@ -9,8 +9,6 @@ import org.lwjgl.util.vector.Vector2f;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.lwjgl.opengl.Display.getHeight;
 
 public class FontRenderer extends CFont {
     private final int[] colorCode = new int[32];

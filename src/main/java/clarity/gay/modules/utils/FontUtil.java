@@ -1,4 +1,4 @@
-package clarity.wtf.modules.utils;
+package clarity.gay.modules.utils;
 
 
 import org.lwjgl.util.vector.Vector2f;

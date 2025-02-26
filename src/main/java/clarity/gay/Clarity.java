@@ -1,7 +1,7 @@
-package clarity.wtf;
+package clarity.gay;
 
-import clarity.wtf.modules.ModuleManager;
-import clarity.wtf.modules.utils.Fonts;
+import clarity.gay.modules.ModuleManager;
+import clarity.gay.modules.utils.Fonts;
 import org.greenrobot.eventbus.EventBus;
 import org.lwjgl.opengl.Display;
 

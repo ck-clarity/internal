@@ -1,12 +1,12 @@
-package clarity.wtf.modules.fun;
+package clarity.gay.modules.fun;
 
-import clarity.wtf.modules.Category;
-import clarity.wtf.modules.Module;
-import clarity.wtf.modules.ModuleInfo;
+import clarity.gay.modules.Category;
+import clarity.gay.modules.Module;
+import clarity.gay.modules.ModuleInfo;
 import javazoom.jl.player.Player;
 import java.io.BufferedInputStream;
 import java.io.InputStream;
-import clarity.wtf.events.TickEvent;
+import clarity.gay.events.TickEvent;
 import org.greenrobot.eventbus.Subscribe;
 
 @ModuleInfo(name = "Music", description = "Plays Clarity on loop", category = Category.FUN)

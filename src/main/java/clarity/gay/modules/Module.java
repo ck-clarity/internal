@@ -1,7 +1,7 @@
-package clarity.wtf.modules;
+package clarity.gay.modules;
 
 
-import clarity.wtf.Clarity;
+import clarity.gay.Clarity;
 import net.minecraft.client.Minecraft;
 
 import java.util.ArrayList;

@@ -1,8 +1,8 @@
 package net.minecraft.client;
 
-import clarity.wtf.Clarity;
-import clarity.wtf.events.KeyPressEvent;
-import clarity.wtf.events.TickEvent;
+import clarity.gay.Clarity;
+import clarity.gay.events.KeyPressEvent;
+import clarity.gay.events.TickEvent;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;

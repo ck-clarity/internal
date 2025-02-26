@@ -1,12 +1,11 @@
-package clarity.wtf.modules.combat;
+package clarity.gay.modules.combat;
 
-import clarity.wtf.events.TickEvent;
-import clarity.wtf.modules.Category;
-import clarity.wtf.modules.Module;
-import clarity.wtf.modules.ModuleInfo;
-import clarity.wtf.modules.ModuleManager;
+import clarity.gay.events.TickEvent;
+import clarity.gay.modules.Category;
+import clarity.gay.modules.Module;
+import clarity.gay.modules.ModuleInfo;
+import clarity.gay.modules.ModuleManager;
 import net.minecraft.client.Minecraft;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.network.play.client.C02PacketUseEntity;

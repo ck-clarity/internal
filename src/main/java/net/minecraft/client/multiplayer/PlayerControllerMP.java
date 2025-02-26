@@ -1,8 +1,7 @@
 package net.minecraft.client.multiplayer;
 
-import clarity.wtf.Clarity;
-import clarity.wtf.events.AttackEvent;
-import clarity.wtf.events.KeyPressEvent;
+import clarity.gay.Clarity;
+import clarity.gay.events.AttackEvent;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;

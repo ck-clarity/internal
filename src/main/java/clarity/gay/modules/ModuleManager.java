@@ -1,7 +1,7 @@
-package clarity.wtf.modules;
+package clarity.gay.modules;
 
-import clarity.wtf.Clarity;
-import clarity.wtf.events.KeyPressEvent;
+import clarity.gay.Clarity;
+import clarity.gay.events.KeyPressEvent;
 import org.greenrobot.eventbus.Subscribe;
 import org.lwjgl.input.Keyboard;
 import org.reflections.Reflections;
@@ -23,11 +23,12 @@ public class ModuleManager {
         getModuleByName("Lawnmower").setBind(Keyboard.KEY_K);
         getModuleByName("Criticals").setBind(Keyboard.KEY_C);
         getModuleByName("TpAura").setBind(Keyboard.KEY_X);
+        getModuleByName("Velocity").setBind(Keyboard.KEY_V);
     }
 
     private void registerModules() {
         // shit code yes yes kys ik
-        Reflections reflections = new Reflections("clarity.wtf.modules");
+        Reflections reflections = new Reflections("clarity.gay.modules");
         Set<Class<? extends Module>> moduleClasses = reflections.getSubTypesOf(Module.class);
         for (Class<? extends Module> clazz : moduleClasses) {
             ModuleInfo moduleInfo = clazz.getAnnotation(ModuleInfo.class);

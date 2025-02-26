@@ -1,9 +1,9 @@
-package clarity.wtf.modules.ui;
+package clarity.gay.modules.ui;
 
-import clarity.wtf.events.TickEvent;
-import clarity.wtf.modules.Category;
-import clarity.wtf.modules.Module;
-import clarity.wtf.modules.ModuleInfo;
+import clarity.gay.events.TickEvent;
+import clarity.gay.modules.Category;
+import clarity.gay.modules.Module;
+import clarity.gay.modules.ModuleInfo;
 import org.greenrobot.eventbus.Subscribe;
 
 @ModuleInfo(name = "ClickGui", description = "ui", category = Category.UI)

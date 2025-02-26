@@ -1,9 +1,9 @@
-package clarity.wtf.modules.combat;
+package clarity.gay.modules.combat;
 
-import clarity.wtf.events.AttackEvent;
-import clarity.wtf.modules.Category;
-import clarity.wtf.modules.ModuleInfo;
-import clarity.wtf.modules.Module;
+import clarity.gay.events.AttackEvent;
+import clarity.gay.modules.Category;
+import clarity.gay.modules.ModuleInfo;
+import clarity.gay.modules.Module;
 import net.minecraft.entity.Entity;
 import net.minecraft.network.play.client.C03PacketPlayer;
 import org.greenrobot.eventbus.Subscribe;

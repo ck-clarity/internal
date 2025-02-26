@@ -1,14 +1,14 @@
-package clarity.wtf.modules.combat;
+package clarity.gay.modules.combat;
 
-import clarity.wtf.events.TickEvent;
+import clarity.gay.events.TickEvent;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.MathHelper;
 import net.minecraft.network.play.client.C02PacketUseEntity;
 import net.minecraft.network.play.client.C0APacketAnimation;
-import clarity.wtf.modules.Category;
-import clarity.wtf.modules.Module;
-import clarity.wtf.modules.ModuleInfo;
+import clarity.gay.modules.Category;
+import clarity.gay.modules.Module;
+import clarity.gay.modules.ModuleInfo;
 import org.greenrobot.eventbus.Subscribe;
 
 import java.util.List;

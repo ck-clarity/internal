@@ -1,4 +1,4 @@
-package clarity.wtf.modules.utils;
+package clarity.gay.modules.utils;
 
 import net.minecraft.client.renderer.texture.DynamicTexture;
 import org.lwjgl.opengl.GL11;

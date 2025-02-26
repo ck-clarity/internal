@@ -1,4 +1,4 @@
-package clarity.wtf.modules;
+package clarity.gay.modules;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

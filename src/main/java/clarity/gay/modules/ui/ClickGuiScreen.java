@@ -1,9 +1,9 @@
-package clarity.wtf.modules.ui;
+package clarity.gay.modules.ui;
 
-import clarity.wtf.modules.Category;
-import clarity.wtf.modules.Module;
-import clarity.wtf.modules.ModuleManager;
-import clarity.wtf.modules.utils.FontUtil;
+import clarity.gay.modules.Category;
+import clarity.gay.modules.Module;
+import clarity.gay.modules.ModuleManager;
+import clarity.gay.modules.utils.FontUtil;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.ScaledResolution;

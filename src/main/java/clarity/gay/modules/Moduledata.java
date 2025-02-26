@@ -1,4 +1,4 @@
-package clarity.wtf.modules;
+package clarity.gay.modules;
 
 import com.google.gson.annotations.SerializedName;
 import lombok.AllArgsConstructor;

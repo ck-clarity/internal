@@ -1,4 +1,4 @@
-package clarity.wtf.events;
+package clarity.gay.events;
 
 public class TickEvent {
 }

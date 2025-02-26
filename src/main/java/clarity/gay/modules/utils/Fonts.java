@@ -1,4 +1,4 @@
-package clarity.wtf.modules.utils;
+package clarity.gay.modules.utils;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.ResourceLocation;

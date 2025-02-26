@@ -5,8 +5,8 @@ Time: 2/25/25 3:39 PM
 Description: Rendering screen
 
 java.lang.NullPointerException: Rendering screen
-	at clarity.wtf.modules.utils.FontUtil.drawString(FontUtil.java:14)
-	at clarity.wtf.modules.ui.ClickGuiScreen.drawScreen(ClickGuiScreen.java:63)
+	at clarity.gay.modules.utils.FontUtil.drawString(FontUtil.java:14)
+	at clarity.gay.modules.ui.ClickGuiScreen.drawScreen(ClickGuiScreen.java:63)
 	at net.minecraft.client.renderer.EntityRenderer.updateCameraAndRender(EntityRenderer.java:1314)
 	at net.minecraft.client.Minecraft.runGameLoop(Minecraft.java:1042)
 	at net.minecraft.client.Minecraft.run(Minecraft.java:350)
@@ -19,12 +19,12 @@ A detailed walkthrough of the error, its code path and all known details is as f
 
 -- Head --
 Stacktrace:
-	at clarity.wtf.modules.utils.FontUtil.drawString(FontUtil.java:14)
-	at clarity.wtf.modules.ui.ClickGuiScreen.drawScreen(ClickGuiScreen.java:63)
+	at clarity.gay.modules.utils.FontUtil.drawString(FontUtil.java:14)
+	at clarity.gay.modules.ui.ClickGuiScreen.drawScreen(ClickGuiScreen.java:63)
 
 -- Screen render details --
 Details:
-	Screen name: clarity.wtf.modules.ui.ClickGuiScreen
+	Screen name: clarity.gay.modules.ui.ClickGuiScreen
 	Mouse location: Scaled: (240, 127). Absolute: (960, 508)
 	Screen size: Scaled: (480, 255). Absolute: (1920, 1017). Scale factor of 4
 
