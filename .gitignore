@@ -4,7 +4,12 @@ build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 /run
+/.vs
+/usercache.json
+/options.txt
+/optionsof.txt
 /run/saves
+/saves
 /.idea
 /run/saves
 /run/saves/MCP Development World
