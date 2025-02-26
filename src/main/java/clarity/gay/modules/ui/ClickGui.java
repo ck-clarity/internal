@@ -5,12 +5,18 @@ import clarity.gay.modules.Category;
 import clarity.gay.modules.Module;
 import clarity.gay.modules.ModuleInfo;
 import org.greenrobot.eventbus.Subscribe;
+import org.lwjgl.input.Keyboard;
 
-@ModuleInfo(name = "ClickGui", description = "ui", category = Category.UI)
+@ModuleInfo(
+        name = "ClickGui",
+        category = Category.UI,
+        description = "ui",
+        bind = Keyboard.KEY_RSHIFT
+)
 public class ClickGui extends Module {
-    public ClickGui(){
-        super("ClickGui","ui", Category.UI);
-    }
+//    public ClickGui(){
+//        super("ClickGui","ui", Category.UI);
+//    }
     @Override
     public void onEnable(){
         if(mc.currentScreen == null) {

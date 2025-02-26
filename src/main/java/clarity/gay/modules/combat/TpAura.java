@@ -12,10 +12,16 @@ import net.minecraft.network.play.client.C02PacketUseEntity;
 import net.minecraft.network.play.client.C0APacketAnimation;
 import net.minecraft.util.MathHelper;
 import org.greenrobot.eventbus.Subscribe;
+import org.lwjgl.input.Keyboard;
 
 import java.util.Comparator;
 
-@ModuleInfo(name = "TpAura", description = "Teleports around entities while attacking", category = Category.COMBAT)
+@ModuleInfo(
+        name = "TpAura",
+        category = Category.COMBAT,
+        description = "Teleports around entities while attacking",
+        bind = Keyboard.KEY_O
+)
 public class TpAura extends Module {
     private long lastAttackTime;
     private int ticks = 0;
@@ -27,7 +33,7 @@ public class TpAura extends Module {
     private static final int TP_POINTS = 60;
 
     public TpAura() {
-        super("TpAura", "Teleports around entities while attacking", Category.COMBAT);
+        super("TpAura", Category.COMBAT, "Teleports around entities while attacking");
     }
 
     @Override
