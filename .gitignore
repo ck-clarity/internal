@@ -5,6 +5,9 @@ build/
 !**/src/test/**/build/
 /run
 /.vs
+/assets
+/servers.dat
+/crash-reports
 /usercache.json
 /options.txt
 /optionsof.txt

@@ -6,6 +6,7 @@ public enum Category {
     UI,
     WORLD,
     PLAYER,
-    FUN
+    FUN,
+    RENDER
 
 }

@@ -15,7 +15,7 @@ public class Criticals extends Module {
         super("Criticals", "Makes all attacks critical hits", Category.COMBAT);
     }
 
-    // no clue how to do this sooo its someone elses problem now...fuck you joshieman
+    // no clue how to do this sooo its someone elses problem now...fuck you - joshieman
 
     // note this is POST for some reason idfk someone elses problem now - kwenma
 
