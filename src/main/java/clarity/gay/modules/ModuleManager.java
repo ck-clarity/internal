@@ -17,13 +17,6 @@ public class ModuleManager {
     public void initModule() {
         Clarity.getInstance().eventBus.register(this);
         registerModules();
-        getModuleByName("ClickGUI").setBind(Keyboard.KEY_RSHIFT);
-        getModuleByName("Speed").setBind(Keyboard.KEY_O);
-        getModuleByName("Music").setBind(Keyboard.KEY_P);
-        getModuleByName("Lawnmower").setBind(Keyboard.KEY_K);
-        getModuleByName("Criticals").setBind(Keyboard.KEY_C);
-        getModuleByName("TpAura").setBind(Keyboard.KEY_X);
-        getModuleByName("Velocity").setBind(Keyboard.KEY_V);
     }
 
     private void registerModules() {
@@ -44,11 +37,9 @@ public class ModuleManager {
     }
     @Subscribe
     public void onKeyPress(KeyPressEvent event) {
-        for (Module module : modules.values()) {
-            if (module.getBind() == event.keybind) {
-                module.setEnabled(!module.isEnabled());
-            }
-        }
+        modules.values().stream()
+                .filter(module -> module.getBind() == event.getKeybind())
+                .forEach(module -> module.setEnabled(!module.isEnabled()));
     }
 
     public static Module getModuleByName(String name) {

@@ -10,17 +10,23 @@ import clarity.gay.modules.Category;
 import clarity.gay.modules.Module;
 import clarity.gay.modules.ModuleInfo;
 import org.greenrobot.eventbus.Subscribe;
+import org.lwjgl.input.Keyboard;
 
 import java.util.List;
 import java.util.Comparator;
 
-@ModuleInfo(name = "Lawnmower", description = "Automatically attacks nearby entities", category = Category.COMBAT)
+@ModuleInfo(
+        name = "Lawnmower",
+        category = Category.COMBAT,
+        description = "Automatically attacks nearby entities",
+        bind = Keyboard.KEY_K
+)
 public class Lawnmower extends Module {
     private long lastAttackTime;
     private static final int ATTACK_DELAY = 100;
     private static final float RANGE = 6.0f;
 
-    public Lawnmower() {super("Lawnmower", "Automatically attacks nearby entities", Category.COMBAT);}
+//    public Lawnmower() {super("Lawnmower", Category.COMBAT, "Automatically attacks nearby entities");}
 
     @Subscribe
     public void onTick(TickEvent event) {

@@ -7,13 +7,19 @@ import clarity.gay.modules.Module;
 import net.minecraft.entity.Entity;
 import net.minecraft.network.play.client.C03PacketPlayer;
 import org.greenrobot.eventbus.Subscribe;
+import org.lwjgl.input.Keyboard;
 
-@ModuleInfo(name = "Criticals", description = "Makes all attacks critical hits", category = Category.COMBAT)
+@ModuleInfo(
+        name = "Criticals",
+        category = Category.COMBAT,
+        description = "Makes all attacks critical hits",
+        bind = Keyboard.KEY_C
+)
 public class Criticals extends Module {
 
-    public Criticals() {
-        super("Criticals", "Makes all attacks critical hits", Category.COMBAT);
-    }
+//    public Criticals() {
+//        super("Criticals", Category.COMBAT, "Makes all attacks critical hits");
+//    }
 
     // no clue how to do this sooo its someone elses problem now...fuck you - joshieman
 
