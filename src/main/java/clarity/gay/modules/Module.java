@@ -14,6 +14,8 @@ import java.util.Objects;
 public class Module {
 
     public Minecraft mc = Minecraft.getMinecraft();
+
+    @Getter
     private final String name;
 
     @Getter
@@ -26,15 +28,12 @@ public class Module {
     @Getter
     private int bind;
 
+    private final boolean startup;
+
     @Getter
-    private boolean startup;
-  
     private boolean enabled;
 
     public Moduledata data;
-
-    public Module(String name, String description, Category category) {
-      
     public ModuleInfo info = getClass().getAnnotation(ModuleInfo.class);
 
     public Module() {
@@ -61,11 +60,8 @@ public class Module {
         this(name, category, "", Keyboard.KEY_NONE);
     }
 
+    @Getter
     ArrayList<String> mode = new ArrayList<>();
-
-    public ArrayList<String> getMode() {
-        return mode;
-    }
 
     public String getModeCase(String modeName) {
         for (String mode : mode) {

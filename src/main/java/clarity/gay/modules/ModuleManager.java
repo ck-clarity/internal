@@ -17,8 +17,6 @@ public class ModuleManager {
     public void initModule() {
         Clarity.getInstance().eventBus.register(this);
         registerModules();
-        getModuleByName("ClickGUI").setBind(Keyboard.KEY_RSHIFT);
-        getModuleByName("HUD").setEnabled(true);
     }
 
     private void registerModules() {

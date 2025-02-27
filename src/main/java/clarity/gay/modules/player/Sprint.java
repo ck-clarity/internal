@@ -9,9 +9,6 @@ import org.greenrobot.eventbus.Subscribe;
 
 @ModuleInfo(name = "Sprint", description = "Automatically sprints for you.", category = Category.PLAYER)
 public class Sprint extends Module {
-    public Sprint() {
-        super("Sprint", "Automatically sprints for you.", Category.PLAYER);
-    }
 
     @Subscribe
     public void onTick(TickEvent event) {
