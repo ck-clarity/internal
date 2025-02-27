@@ -7,10 +7,10 @@ import org.lwjgl.input.Keyboard;
 
 import java.util.List;
 
-@CommandInfo(name = "bind", description = "binds shit on my cousin bro")
+@CommandInfo(name = "bind", description = "Bind modules to keys.")
 public class Bind extends Command {
     public Bind() {
-        super("bind", "binds shit on my cousin bro");
+        super("bind", "Bind modules to keys.");
     }
 
     @Override

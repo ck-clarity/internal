@@ -2,6 +2,8 @@ package clarity.gay.modules;
 
 
 import clarity.gay.Clarity;
+import lombok.Getter;
+import lombok.Setter;
 import net.minecraft.client.Minecraft;
 
 import java.util.ArrayList;
@@ -10,12 +12,24 @@ import java.util.Objects;
 
 public class Module {
 
+    @Getter
     private final String name;
+
+    @Getter
     private final String description;
+
+    @Getter
     private final Category category;
+
+    @Setter
+    @Getter
     private int bind;
+
+    @Getter
     private boolean enabled;
+
     public Moduledata data;
+
     ModuleInfo info = getClass().getAnnotation(ModuleInfo.class);
     public Module(String name, String description, Category category) {
         this.name = name;
@@ -65,26 +79,6 @@ public class Module {
     }
 
     String current = "";
-
-    public String getName() {
-        return name;
-    }
-
-    public Category getCategory() {
-        return category;
-    }
-
-    public int getBind() {
-        return bind;
-    }
-
-    public void setBind(int bind) {
-        this.bind = bind;
-    }
-
-    public boolean isEnabled() {
-        return enabled;
-    }
 
     public void setEnabled(boolean enabled) {
         if (this.enabled == enabled) return;
