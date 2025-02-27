@@ -18,12 +18,7 @@ public class ModuleManager {
         Clarity.getInstance().eventBus.register(this);
         registerModules();
         getModuleByName("ClickGUI").setBind(Keyboard.KEY_RSHIFT);
-        getModuleByName("Speed").setBind(Keyboard.KEY_O);
-        getModuleByName("Music").setBind(Keyboard.KEY_P);
-        getModuleByName("Lawnmower").setBind(Keyboard.KEY_K);
-        getModuleByName("Criticals").setBind(Keyboard.KEY_C);
-        getModuleByName("TpAura").setBind(Keyboard.KEY_X);
-        getModuleByName("Velocity").setBind(Keyboard.KEY_V);
+        getModuleByName("HUD").setEnabled(true);
     }
 
     private void registerModules() {
