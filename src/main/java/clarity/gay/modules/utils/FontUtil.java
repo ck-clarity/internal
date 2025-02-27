@@ -1,11 +1,9 @@
 package clarity.gay.modules.utils;
 
-
+import org.lwjgl.opengl.GL11;
 import org.lwjgl.util.vector.Vector2f;
 
-
 public class FontUtil {
-
 
     private FontUtil() {
     }
@@ -42,6 +40,50 @@ public class FontUtil {
         drawCenteredStringWithShadow(str, pos.x, pos.y, color);
     }
 
+    public static void drawScaledString(String str, float x, float y, int color, float scale) {
+        GL11.glPushMatrix();
+        GL11.glTranslatef(x, y, 0);
+        GL11.glScalef(scale, scale, scale);
+        typeToFont().drawString(str, new Vector2f(0, 0), color);
+        GL11.glPopMatrix();
+    }
+
+    public static void drawScaledString(String str, Vector2f pos, int color, float scale) {
+        drawScaledString(str, pos.x, pos.y, color, scale);
+    }
+
+    public static void drawScaledStringWithShadow(String str, float x, float y, int color, float scale) {
+        GL11.glPushMatrix();
+        GL11.glTranslatef(x, y, 0);
+        GL11.glScalef(scale, scale, scale);
+        typeToFont().drawStringWithShadow(str, 0, 0, color);
+        GL11.glPopMatrix();
+    }
+
+    public static void drawScaledStringWithShadow(String str, Vector2f pos, int color, float scale) {
+        drawScaledStringWithShadow(str, pos.x, pos.y, color, scale);
+    }
+
+    public static void drawCenteredScaledString(String str, float x, float y, int color, float scale) {
+        float scaledWidth = getStringWidth(str) * scale;
+        float scaledHeight = getFontHeight() * scale;
+        drawScaledString(str, x - scaledWidth / 2.0f, y - scaledHeight / 2.0f, color, scale);
+    }
+
+    public static void drawCenteredScaledString(String str, Vector2f pos, int color, float scale) {
+        drawCenteredScaledString(str, pos.x, pos.y, color, scale);
+    }
+
+    public static void drawCenteredScaledStringWithShadow(String str, float x, float y, int color, float scale) {
+        float scaledWidth = getStringWidth(str) * scale;
+        float scaledHeight = getFontHeight() * scale;
+        drawScaledStringWithShadow(str, x - scaledWidth / 2.0f, y - scaledHeight / 2.0f, color, scale);
+    }
+
+    public static void drawCenteredScaledStringWithShadow(String str, Vector2f pos, int color, float scale) {
+        drawCenteredScaledStringWithShadow(str, pos.x, pos.y, color, scale);
+    }
+
     public static float getStringWidth(String str) {
         return typeToFont().getStringWidth(str);
     }
@@ -57,6 +99,4 @@ public class FontUtil {
         }
         return font;
     }
-
-
 }

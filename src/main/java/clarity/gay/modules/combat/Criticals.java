@@ -29,7 +29,6 @@ public class Criticals extends Module {
 
     @Subscribe
     public void onAttack(AttackEvent event) {
-        Entity targetEntity = event.getTargetEntity();
         double x = mc.thePlayer.posX;
         double y = mc.thePlayer.posY;
         double z = mc.thePlayer.posZ;

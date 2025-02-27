@@ -74,7 +74,7 @@ public class ClickGuiScreen extends GuiScreen {
 
                 int moduleY = py + 20 - scrollOffset;
                 for (Module module : ModuleManager.modules.values()) {
-                    if (module.getCategory() == category && !module.getName().equals("ClickUI")) {
+                    if (module.getCategory() == category && !module.getName().equals("ClickGui")) {
                         boolean isModuleExpanded = moduleExpanded.getOrDefault(module, false);
 
                         if (moduleY + 18 < py + 20 || moduleY > py + panelHeight) {
@@ -212,7 +212,7 @@ public class ClickGuiScreen extends GuiScreen {
                     int moduleY = py + 20 - scrollOffset;
 
                     for (Module module : ModuleManager.modules.values()) {
-                        if (module.getCategory() == category && !module.getName().equals("ClickUI")) {
+                        if (module.getCategory() == category && !module.getName().equals("ClickGui")) {
                             boolean isModuleExpanded = moduleExpanded.getOrDefault(module, false);
 
                             if (isInBox(px, px + 110, moduleY, moduleY + 18, mouseX, mouseY)) {

@@ -1,5 +1,9 @@
 package clarity.gay.modules.movement;
 
+import clarity.gay.commands.CommandManager;
+import clarity.gay.events.PacketRecieveEvent;
+import clarity.gay.events.PacketSendEvent;
+import clarity.gay.events.PacketSendEventFinal;
 import clarity.gay.events.TickEvent;
 import clarity.gay.modules.Category;
 import clarity.gay.modules.Module;
@@ -19,14 +23,6 @@ public class Speed extends Module {
 //        super("Speed", Category.MOVEMENT, "zoom");
 //    }
 
-    @Override
-    public void onEnable(){
-        System.out.println("Test");
-    }
-    @Override
-    public void onDisable(){
-        System.out.println("Test2");
-    }
     @Subscribe
     public void onTick(TickEvent event) {
         double baseSpeed = 0.3;
@@ -63,6 +59,7 @@ public class Speed extends Module {
         mc.thePlayer.motionX = motionX;
         mc.thePlayer.motionZ = motionZ;
     }
+
 
 
 

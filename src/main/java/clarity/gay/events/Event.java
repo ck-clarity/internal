@@ -32,10 +32,6 @@ public class Event {
         return this;
     }
 
-    public Direction getDirection() {
-        return direction;
-    }
-
     public enum Type {
 
         PRE,
