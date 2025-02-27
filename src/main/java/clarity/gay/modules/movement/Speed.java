@@ -26,7 +26,7 @@ public class Speed extends Module {
     @Subscribe
     public void onTick(TickEvent event) {
         double baseSpeed = 0.3;
-        double speedMultiplier = 1.5;
+        double speedMultiplier = 5;
 
         if (mc.thePlayer.onGround) {
             mc.thePlayer.motionY = 0.42;
