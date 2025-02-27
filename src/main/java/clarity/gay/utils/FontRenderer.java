@@ -1,4 +1,4 @@
-package clarity.gay.modules.utils;
+package clarity.gay.utils;
 
 
 import net.minecraft.client.renderer.GlStateManager;

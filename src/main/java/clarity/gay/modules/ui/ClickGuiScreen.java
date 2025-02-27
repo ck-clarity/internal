@@ -3,10 +3,11 @@ package clarity.gay.modules.ui;
 import clarity.gay.modules.Category;
 import clarity.gay.modules.Module;
 import clarity.gay.modules.ModuleManager;
-import clarity.gay.modules.utils.FontUtil;
+import clarity.gay.utils.FontUtil;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.ScaledResolution;
+import net.minecraft.client.renderer.GlStateManager;
 import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.GL11;
 
@@ -93,6 +94,16 @@ public class ClickGuiScreen extends GuiScreen {
                         FontUtil.drawString(moduleName,
                                 px + 5, moduleY + 5,
                                 module.isEnabled() ? new Color(255, 255, 255).getRGB() : new Color(200, 200, 200).getRGB());
+
+                        if (hover) {
+                            GlStateManager.pushMatrix();
+                                GL11.glDisable(GL11.GL_SCISSOR_TEST);
+                                GlStateManager.translate(mouseX + 8, mouseY, 1);
+                                String moduleDescription = module.getDescription();
+                                Gui.drawRect(0, 0, (int) FontUtil.getStringWidth(moduleDescription) + 6, 13, new Color(0, 0, 0, 100).getRGB());
+                                FontUtil.drawString(moduleDescription, 3, 3, -1);
+                            GlStateManager.popMatrix();
+                        }
 
                         if (isModuleExpanded && !module.getMode().isEmpty()) {
                             int modeY = moduleY + 18;
@@ -258,5 +269,10 @@ public class ClickGuiScreen extends GuiScreen {
 
     private boolean isInBox(int left, int right, int top, int bottom, int mouseX, int mouseY) {
         return mouseX >= left && mouseX <= right && mouseY >= top && mouseY <= bottom;
+    }
+
+    @Override
+    public boolean doesGuiPauseGame() {
+        return false;
     }
 }

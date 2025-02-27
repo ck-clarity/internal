@@ -6,8 +6,7 @@ import clarity.gay.modules.Category;
 import clarity.gay.modules.Module;
 import clarity.gay.modules.ModuleInfo;
 import clarity.gay.modules.ModuleManager;
-import clarity.gay.modules.utils.FontRenderer;
-import clarity.gay.modules.utils.FontUtil;
+import clarity.gay.utils.FontUtil;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.multiplayer.ServerData;
@@ -16,7 +15,6 @@ import org.greenrobot.eventbus.Subscribe;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 @ModuleInfo(name = "HUD", description = "HUD", category = Category.UI)
 public class Hud extends Module {
@@ -51,14 +49,13 @@ public class Hud extends Module {
     }
 
 
-    private void drawArrayList() {
+    private void drawArrayList(ScaledResolution sr) {
         moduleList.clear();
         ModuleManager.modules.values().stream()
                 .filter(Module::isEnabled)
                 .sorted((m1, m2) -> Float.compare(FontUtil.getStringWidth(m2.getName()), FontUtil.getStringWidth(m1.getName())))
                 .forEach(moduleList::add);
 
-        ScaledResolution sr = new ScaledResolution(mc);
         int offset = 0;
         int padding = 2;
         int boxHeight = 10;
@@ -82,12 +79,19 @@ public class Hud extends Module {
         }
     }
 
+    public void drawClientInfo(ScaledResolution sr) {
+        String info = "clarity.gay" + EnumChatFormatting.GRAY + " (" + Clarity.ver + ")";
+        FontUtil.drawStringWithShadow(info, sr.getScaledWidth() - FontUtil.getStringWidth(info) - 3, sr.getScaledHeight() - 12, -1);
+    }
+
 
     @Subscribe
     public void onDraw(Render2DEvent event) {
+        ScaledResolution sr = new ScaledResolution(mc);
         if (!mc.gameSettings.showDebugInfo) {
-            drawArrayList();
+            drawArrayList(sr);
             drawWatermark();
+            drawClientInfo(sr);
         }
     }
 }
