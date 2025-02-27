@@ -2,6 +2,7 @@ package clarity.gay.modules.player;
 
 import clarity.gay.events.Event;
 import clarity.gay.events.EventPacket;
+import clarity.gay.events.PacketRecieveEvent;
 import clarity.gay.modules.Category;
 import clarity.gay.modules.Module;
 import clarity.gay.modules.ModuleInfo;
@@ -24,24 +25,11 @@ public class Velocity extends Module {
 //    }
 
     @Subscribe
-    public void onEvent(EventPacket event) {
-        if (event.isReceiving()) {
-            Packet<?> packet = event.getPacket();
-            System.out.println("got packet: " + packet.getClass().getSimpleName());
-
-            if (packet instanceof S12PacketEntityVelocity) {
-                S12PacketEntityVelocity s12 = (S12PacketEntityVelocity) packet;
-                if (s12.getEntityID() == mc.thePlayer.getEntityId()) {
-                    System.out.println("velocity");
-                    event.setCancelled(true);
-                }
-            }
-
-            if (packet instanceof S27PacketExplosion) {
-                System.out.println("velocity");
-                event.setCancelled(true);
-            }
+    public void onEvent(PacketRecieveEvent event) {
+        if (event.getPacket() instanceof S12PacketEntityVelocity) {
+            S12PacketEntityVelocity packet = (S12PacketEntityVelocity) event.getPacket();
+            if (packet.getEntityID() != mc.thePlayer.getEntityId()) return;
+            event.setCancelled(true);
         }
     }
-
 }

@@ -6,8 +6,7 @@ import clarity.gay.modules.Category;
 import clarity.gay.modules.Module;
 import clarity.gay.modules.ModuleInfo;
 import clarity.gay.modules.ModuleManager;
-import clarity.gay.modules.utils.FontRenderer;
-import clarity.gay.modules.utils.FontUtil;
+import clarity.gay.utils.FontUtil;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.multiplayer.ServerData;
@@ -16,11 +15,10 @@ import org.greenrobot.eventbus.Subscribe;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 @ModuleInfo(name = "HUD", description = "HUD", category = Category.UI)
 public class Hud extends Module {
-    private long ping;
+    private double ping;
     private String ip;
     private static final List<Module> moduleList = new ArrayList<>();
     Color rainbow;
@@ -51,14 +49,13 @@ public class Hud extends Module {
     }
 
 
-    private void drawArrayList() {
+    private void drawArrayList(ScaledResolution sr) {
         moduleList.clear();
         ModuleManager.modules.values().stream()
                 .filter(Module::isEnabled)
                 .sorted((m1, m2) -> Float.compare(FontUtil.getStringWidth(m2.getName()), FontUtil.getStringWidth(m1.getName())))
                 .forEach(moduleList::add);
 
-        ScaledResolution sr = new ScaledResolution(mc);
         int offset = 0;
         int padding = 2;
         int boxHeight = 10;
@@ -74,7 +71,7 @@ public class Hud extends Module {
 
             Gui.drawRect((int) x, (int) yStart, (int) (x + width + padding * 2), (int) yEnd, new Color(0, 0, 0, 75).getRGB());
 
-            rainbow = Color.getHSBColor((float) ((offset * 0.05 + Math.sin(System.currentTimeMillis() / 1000.0) * 0.25) % 1.0), 1, 1);
+            rainbow = Color.getHSBColor((float) ((offset * 0.05 + Math.sin(System.currentTimeMillis() / 1000.0) * 0.25) % 1.0), 0.5F, 1);
             Gui.drawRect((int) (x + width + padding * 2 - 1), (int) yStart, (int) (x + width + padding * 2), (int) yEnd, rainbow.getRGB());
 
             FontUtil.drawString(text, x + padding, yStart + (boxHeight / 2F) - (FontUtil.getFontHeight() / 2), rainbow.getRGB());
@@ -82,12 +79,19 @@ public class Hud extends Module {
         }
     }
 
+    public void drawClientInfo(ScaledResolution sr) {
+        String info = "clarity.gay" + EnumChatFormatting.GRAY + " (" + Clarity.ver + ")";
+        FontUtil.drawStringWithShadow(info, sr.getScaledWidth() - FontUtil.getStringWidth(info) - 3, sr.getScaledHeight() - 12, -1);
+    }
+
 
     @Subscribe
     public void onDraw(Render2DEvent event) {
+        ScaledResolution sr = new ScaledResolution(mc);
         if (!mc.gameSettings.showDebugInfo) {
-            drawArrayList();
+            drawArrayList(sr);
             drawWatermark();
+            drawClientInfo(sr);
         }
     }
 }

@@ -1,12 +1,12 @@
 package clarity.gay.commands;
 
 import java.util.List;
-@CommandInfo(name = "test", description = "test")
+@CommandInfo(name = "test", description = "Test command.")
 
 public class Test extends Command {
 
     public Test() {
-        super("test", "test");
+        super("test", "Test command.");
     }
 
     @Override

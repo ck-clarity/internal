@@ -5,9 +5,10 @@ import clarity.gay.commands.CommandManager;
 import clarity.gay.extensions.FileManager;
 import clarity.gay.modules.Module;
 import clarity.gay.modules.ModuleManager;
-import clarity.gay.modules.utils.Fonts;
+import clarity.gay.utils.Fonts;
 import org.greenrobot.eventbus.EventBus;
 import org.lwjgl.opengl.Display;
+import clarity.gay.modules.Module;
 
 public class Clarity {
     private static final Clarity INSTANCE = new Clarity();

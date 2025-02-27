@@ -2,6 +2,8 @@ package clarity.gay.modules;
 
 
 import clarity.gay.Clarity;
+import lombok.Getter;
+import lombok.Setter;
 import net.minecraft.client.Minecraft;
 import org.lwjgl.input.Keyboard;
 
@@ -12,12 +14,25 @@ import java.util.Objects;
 public class Module {
 
     public Minecraft mc = Minecraft.getMinecraft();
+
+    @Getter
     private final String name;
+
+    @Getter
     private final String description;
+
+    @Getter
     private final Category category;
+
+    @Setter
+    @Getter
     private int bind;
-    private boolean startup;
+
+    private final boolean startup;
+
+    @Getter
     private boolean enabled;
+
     public Moduledata data;
     public ModuleInfo info = getClass().getAnnotation(ModuleInfo.class);
 
@@ -45,11 +60,8 @@ public class Module {
         this(name, category, "", Keyboard.KEY_NONE);
     }
 
+    @Getter
     ArrayList<String> mode = new ArrayList<>();
-
-    public ArrayList<String> getMode() {
-        return mode;
-    }
 
     public String getModeCase(String modeName) {
         for (String mode : mode) {
@@ -87,26 +99,6 @@ public class Module {
     }
 
     String current = "";
-
-    public String getName() {
-        return name;
-    }
-
-    public Category getCategory() {
-        return category;
-    }
-
-    public int getBind() {
-        return bind;
-    }
-
-    public void setBind(int bind) {
-        this.bind = bind;
-    }
-
-    public boolean isEnabled() {
-        return enabled;
-    }
 
     public void setEnabled(boolean enabled) {
         if (this.enabled == enabled) return;
