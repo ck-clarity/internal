@@ -2,6 +2,8 @@ package clarity.gay;
 
 
 import clarity.gay.commands.CommandManager;
+import clarity.gay.extensions.FileManager;
+import clarity.gay.modules.Module;
 import clarity.gay.modules.ModuleManager;
 import clarity.gay.modules.utils.Fonts;
 import org.greenrobot.eventbus.EventBus;
@@ -9,7 +11,7 @@ import org.lwjgl.opengl.Display;
 
 public class Clarity {
     private static final Clarity INSTANCE = new Clarity();
-
+    public static FileManager fileManager;
     public static final String name = "Clarity";
     public static final String ver = "v0.0.1";
 
@@ -28,6 +30,9 @@ public class Clarity {
         Display.setTitle(name + " | " + ver);
         Fonts.INSTANCE.setup();
         moduleManager.initModule();
+        fileManager = new FileManager();
+        fileManager.init();
+        commandManager.initCommands();
         ModuleManager.modules.values().stream().filter(Module::getStartup).forEach(Module::enableOnStartUp);
     }
 }

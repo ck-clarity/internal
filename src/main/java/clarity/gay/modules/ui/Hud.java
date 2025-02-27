@@ -25,7 +25,7 @@ public class Hud extends Module {
     private static final List<Module> moduleList = new ArrayList<>();
     Color rainbow;
     public Hud() {
-        super("HUD", "HUD", Category.UI);
+        super("HUD",  Category.UI);
     }
 
     private void updateServerInfo() {
