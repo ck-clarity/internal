@@ -1,5 +1,7 @@
 package net.minecraft.client.gui;
 
+import clarity.gay.Clarity;
+import clarity.gay.commands.Command;
 import com.google.common.base.Splitter;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
@@ -433,8 +435,15 @@ public abstract class GuiScreen extends Gui implements GuiYesNoCallback
         {
             this.mc.ingameGUI.getChatGUI().addToSentMessages(msg);
         }
+        if (msg.startsWith(".") && addToChat) {
+            String[] messageSplit = msg.substring(1).split(" ");
+            Command command = Clarity.getInstance().commandManager.getCommand(messageSplit[0]);
 
-        this.mc.thePlayer.sendChatMessage(msg);
+            List<String> messageArgs = Arrays.asList(messageSplit).subList(1, messageSplit.length);
+            if (command != null) { command.runCommand(messageArgs); }
+        } else {
+            this.mc.thePlayer.sendChatMessage(msg);
+        }
     }
 
     protected void mouseClicked(int mouseX, int mouseY, int mouseButton) throws IOException

@@ -1,5 +1,6 @@
 package net.minecraft.client.entity;
 
+import clarity.gay.Clarity;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.MovingSoundMinecartRiding;
 import net.minecraft.client.audio.PositionedSoundRecord;
@@ -42,13 +43,7 @@ import net.minecraft.potion.Potion;
 import net.minecraft.stats.StatBase;
 import net.minecraft.stats.StatFileWriter;
 import net.minecraft.tileentity.TileEntitySign;
-import net.minecraft.util.BlockPos;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumParticleTypes;
-import net.minecraft.util.IChatComponent;
-import net.minecraft.util.MovementInput;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.*;
 import net.minecraft.world.IInteractionObject;
 import net.minecraft.world.World;
 
@@ -221,6 +216,10 @@ public class EntityPlayerSP extends AbstractClientPlayer
 
     protected void joinEntityItemWithWorld(EntityItem itemIn)
     {
+    }
+    // you can improve this if u want....
+    public void sendMessage(String message) {
+        addChatComponentMessage(new ChatComponentText(EnumChatFormatting.GRAY.toString() + Clarity.class.getName().charAt(0) + EnumChatFormatting.RESET + " > " + message));
     }
 
     public void sendChatMessage(String message)

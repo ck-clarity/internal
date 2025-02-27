@@ -1,5 +1,7 @@
 package net.minecraft.client.gui;
 
+import clarity.gay.Clarity;
+import clarity.gay.events.Render2DEvent;
 import com.google.common.base.Predicate;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
@@ -326,7 +328,8 @@ public class GuiIngame extends Gui
         {
             this.overlayPlayerList.updatePlayerList(false);
         }
-
+        if(Clarity.getInstance().eventBus.hasSubscriberForEvent(Render2DEvent.class))
+            Clarity.getInstance().eventBus.post(new Render2DEvent());
         GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
         GlStateManager.disableLighting();
         GlStateManager.enableAlpha();
