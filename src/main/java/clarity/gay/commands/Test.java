@@ -1,14 +1,11 @@
 package clarity.gay.commands;
 
-import clarity.gay.commands.Command;
-import org.greenrobot.eventbus.Subscribe;
-
 import java.util.List;
 @CommandInfo(name = "test", description = "test")
 
-public class test extends Command {
+public class Test extends Command {
 
-    public test() {
+    public Test() {
         super("test", "test");
     }
 
