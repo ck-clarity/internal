@@ -20,7 +20,7 @@ import java.util.Random;
 
 @ModuleInfo(name = "HUD", description = "HUD", category = Category.UI)
 public class Hud extends Module {
-    private long ping;
+    private double ping;
     private String ip;
     private static final List<Module> moduleList = new ArrayList<>();
     Color rainbow;
