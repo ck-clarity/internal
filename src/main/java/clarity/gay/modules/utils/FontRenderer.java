@@ -68,6 +68,7 @@ public class FontRenderer extends CFont {
 
     public float drawString(String text, Vector2f vec2, int color, boolean shadow) {
         vec2.x -= 1;
+        vec2.y += 1;
 
         if (text == null) {
             return 0.0F;

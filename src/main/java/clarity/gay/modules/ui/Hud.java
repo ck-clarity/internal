@@ -11,6 +11,7 @@ import clarity.gay.modules.utils.FontUtil;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.multiplayer.ServerData;
+import net.minecraft.util.EnumChatFormatting;
 import org.greenrobot.eventbus.Subscribe;
 import java.awt.Color;
 import java.util.ArrayList;
@@ -46,9 +47,7 @@ public class Hud extends Module {
 
     private void drawWatermark() {
         updateServerInfo();
-
-        FontUtil.drawString("C",1,1,rainbow.getRGB());
-        FontUtil.drawString("larity", 8,1,Color.WHITE.getRGB());
+        FontUtil.drawStringWithShadow(Clarity.name.charAt(0) + EnumChatFormatting.WHITE.toString() + Clarity.name.substring(1),3,3,rainbow.getRGB());
     }
 
 
@@ -61,7 +60,7 @@ public class Hud extends Module {
 
         ScaledResolution sr = new ScaledResolution(mc);
         int offset = 0;
-        int padding = 1;
+        int padding = 2;
         int boxHeight = 10;
         float spacing = 0.15f;
 
@@ -70,7 +69,7 @@ public class Hud extends Module {
             float width = FontUtil.getStringWidth(text);
             float x = sr.getScaledWidth() - width - padding * 2;
 
-            float yStart = padding + offset * (boxHeight + spacing);
+            float yStart = offset * (boxHeight + spacing);
             float yEnd = yStart + boxHeight;
 
             Gui.drawRect((int) x, (int) yStart, (int) (x + width + padding * 2), (int) yEnd, new Color(0, 0, 0, 75).getRGB());
@@ -78,7 +77,7 @@ public class Hud extends Module {
             rainbow = Color.getHSBColor((float) ((offset * 0.05 + Math.sin(System.currentTimeMillis() / 1000.0) * 0.25) % 1.0), 1, 1);
             Gui.drawRect((int) (x + width + padding * 2 - 1), (int) yStart, (int) (x + width + padding * 2), (int) yEnd, rainbow.getRGB());
 
-            FontUtil.drawString(text, x + padding, yStart + (boxHeight / 2) - (FontUtil.getFontHeight() / 2), rainbow.getRGB());
+            FontUtil.drawString(text, x + padding, yStart + (boxHeight / 2F) - (FontUtil.getFontHeight() / 2), rainbow.getRGB());
             offset++;
         }
     }

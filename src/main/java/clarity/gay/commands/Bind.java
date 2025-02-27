@@ -8,8 +8,8 @@ import org.lwjgl.input.Keyboard;
 import java.util.List;
 
 @CommandInfo(name = "bind", description = "binds shit on my cousin bro")
-public class bind extends Command {
-    public bind() {
+public class Bind extends Command {
+    public Bind() {
         super("bind", "binds shit on my cousin bro");
     }
 

@@ -9,7 +9,7 @@ import org.lwjgl.opengl.Display;
 public class Clarity {
     private static final Clarity INSTANCE = new Clarity();
 
-    private static final String name = "Clarity";
+    public static final String name = "Clarity";
     public static final String ver = "v0.0.1";
 
     public final EventBus eventBus = EventBus.builder().logNoSubscriberMessages(false).build();
