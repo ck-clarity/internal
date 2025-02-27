@@ -1,5 +1,6 @@
 package clarity.gay;
 
+
 import clarity.gay.commands.CommandManager;
 import clarity.gay.modules.ModuleManager;
 import clarity.gay.modules.utils.Fonts;
@@ -27,6 +28,6 @@ public class Clarity {
         Display.setTitle(name + " | " + ver);
         Fonts.INSTANCE.setup();
         moduleManager.initModule();
-        commandManager.initCommands();
+        ModuleManager.modules.values().stream().filter(Module::getStartup).forEach(Module::enableOnStartUp);
     }
 }

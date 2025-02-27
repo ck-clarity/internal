@@ -3,6 +3,7 @@ package clarity.gay.modules;
 
 import clarity.gay.Clarity;
 import net.minecraft.client.Minecraft;
+import org.lwjgl.input.Keyboard;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -10,17 +11,38 @@ import java.util.Objects;
 
 public class Module {
 
+    public Minecraft mc = Minecraft.getMinecraft();
     private final String name;
     private final String description;
     private final Category category;
     private int bind;
+    private boolean startup;
     private boolean enabled;
     public Moduledata data;
-    ModuleInfo info = getClass().getAnnotation(ModuleInfo.class);
-    public Module(String name, String description, Category category) {
+    public ModuleInfo info = getClass().getAnnotation(ModuleInfo.class);
+
+    public Module() {
+        this.name = this.info.name();
+        this.category = this.info.category();
+        this.description = this.info.description();
+        this.bind = this.info.bind();
+        this.startup = this.info.startup();
+    }
+
+    public Module(String name, Category category, String description, int bind) {
         this.name = name;
-        this.description = description;
         this.category = category;
+        this.description = description;
+        this.bind = bind;
+        this.startup = false;
+    }
+
+    public Module(String name, Category category, String description) {
+        this(name, category, description, Keyboard.KEY_NONE);
+    }
+
+    public Module(String name, Category category) {
+        this(name, category, "", Keyboard.KEY_NONE);
     }
 
     ArrayList<String> mode = new ArrayList<>();
@@ -101,12 +123,13 @@ public class Module {
     public void onEnable() {}
     public void onDisable() {}
 
-    public Minecraft mc = Minecraft.getMinecraft();
+    public boolean getStartup() {
+        return this.startup;
+    }
 
-    public void enableOnStartUp(){
-        this.enabled = true;
+    public void enableOnStartUp() {
         try {
-            onEnable();
+            setEnabled(true);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
