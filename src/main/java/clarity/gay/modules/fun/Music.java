@@ -8,16 +8,22 @@ import java.io.BufferedInputStream;
 import java.io.InputStream;
 import clarity.gay.events.TickEvent;
 import org.greenrobot.eventbus.Subscribe;
+import org.lwjgl.input.Keyboard;
 
-@ModuleInfo(name = "Music", description = "Plays Clarity on loop", category = Category.FUN)
+@ModuleInfo(
+        name = "Music",
+        category = Category.FUN,
+        description = "Plays Clarity on loop",
+        bind = Keyboard.KEY_P
+)
 public class Music extends Module {
     private Thread audioThread;
     private volatile boolean playing = false;
     private Player player;
 
-    public Music(){
-        super("Music","Plays Clarity on loop",Category.FUN);
-    }
+//    public Music(){
+//        super("Music", Category.FUN, "Plays Clarity on loop");
+//    }
 
     @Override
     public void onEnable() {

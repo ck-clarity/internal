@@ -10,13 +10,19 @@ import clarity.gay.modules.Module;
 import clarity.gay.modules.ModuleInfo;
 import clarity.gay.utils.MoveUtil;
 import org.greenrobot.eventbus.Subscribe;
+import org.lwjgl.input.Keyboard;
 
-@ModuleInfo(name = "Speed", description = "zoom", category = Category.MOVEMENT)
+@ModuleInfo(
+        name = "Speed",
+        category = Category.MOVEMENT,
+        description = "zoom",
+        bind = Keyboard.KEY_X
+)
 public class Speed extends Module {
 
-    public Speed(){
-        super("Speed","zoom",Category.MOVEMENT);
-    }
+//    public Speed(){
+//        super("Speed", Category.MOVEMENT, "zoom");
+//    }
 
     @Subscribe
     public void onTick(TickEvent event) {

@@ -39,11 +39,9 @@ public class ModuleManager {
     }
     @Subscribe
     public void onKeyPress(KeyPressEvent event) {
-        for (Module module : modules.values()) {
-            if (module.getBind() == event.keybind) {
-                module.setEnabled(!module.isEnabled());
-            }
-        }
+        modules.values().stream()
+                .filter(module -> module.getBind() == event.getKeybind())
+                .forEach(module -> module.setEnabled(!module.isEnabled()));
     }
 
     public static Module getModuleByName(String name) {

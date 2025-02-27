@@ -18,12 +18,12 @@ import java.util.List;
 
 @ModuleInfo(name = "HUD", description = "HUD", category = Category.UI)
 public class Hud extends Module {
-    private long ping;
+    private double ping;
     private String ip;
     private static final List<Module> moduleList = new ArrayList<>();
     Color rainbow;
     public Hud() {
-        super("HUD", "HUD", Category.UI);
+        super("HUD", Category.UI);
     }
 
     private void updateServerInfo() {
@@ -71,7 +71,7 @@ public class Hud extends Module {
 
             Gui.drawRect((int) x, (int) yStart, (int) (x + width + padding * 2), (int) yEnd, new Color(0, 0, 0, 75).getRGB());
 
-            rainbow = Color.getHSBColor((float) ((offset * 0.05 + Math.sin(System.currentTimeMillis() / 1000.0) * 0.25) % 1.0), 1, 1);
+            rainbow = Color.getHSBColor((float) ((offset * 0.05 + Math.sin(System.currentTimeMillis() / 1000.0) * 0.25) % 1.0), 0.5F, 1);
             Gui.drawRect((int) (x + width + padding * 2 - 1), (int) yStart, (int) (x + width + padding * 2), (int) yEnd, rainbow.getRGB());
 
             FontUtil.drawString(text, x + padding, yStart + (boxHeight / 2F) - (FontUtil.getFontHeight() / 2), rainbow.getRGB());
