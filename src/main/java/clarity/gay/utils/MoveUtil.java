@@ -1,9 +1,11 @@
 package clarity.gay.utils;
 
+import clarity.gay.modules.ModuleManager;
+
 public class MoveUtil extends Util {
 
     public static boolean canSprint() {
-        return mc.thePlayer.moveForward >= 0.8 && !mc.thePlayer.isCollidedHorizontally && mc.thePlayer.getFoodStats().getFoodLevel() > 6 && !mc.thePlayer.isSneaking() && !mc.thePlayer.isUsingItem() && isMoving();
+        return mc.thePlayer.moveForward >= 0.8 && !mc.thePlayer.isCollidedHorizontally && mc.thePlayer.getFoodStats().getFoodLevel() > 6 && !mc.thePlayer.isSneaking() && (!mc.thePlayer.isUsingItem() || ModuleManager.getModuleByName("NoSlow").isEnabled()) && isMoving();
     }
 
     public static boolean isMoving() {

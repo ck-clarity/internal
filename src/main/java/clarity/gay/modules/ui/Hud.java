@@ -80,8 +80,11 @@ public class Hud extends Module {
     }
 
     public void drawClientInfo(ScaledResolution sr) {
-        String info = "clarity.gay" + EnumChatFormatting.GRAY + " (" + Clarity.ver + ")";
-        FontUtil.drawStringWithShadow(info, sr.getScaledWidth() - FontUtil.getStringWidth(info) - 3, sr.getScaledHeight() - 12, -1);
+        String info =
+                EnumChatFormatting.WHITE + "clarity." +
+                EnumChatFormatting.RESET + "gay" +
+                EnumChatFormatting.GRAY + " (" + Clarity.ver + ")";
+        FontUtil.drawStringWithShadow(info, sr.getScaledWidth() - FontUtil.getStringWidth(info) - 3, sr.getScaledHeight() - 12, rainbow.getRGB());
     }
 
 

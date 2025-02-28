@@ -1,5 +1,6 @@
 package net.minecraft.client.renderer;
 
+import clarity.gay.modules.ModuleManager;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -344,7 +345,7 @@ public class ItemRenderer
                             break;
 
                         case BLOCK:
-                            this.transformFirstPersonItem(f, 0.0F);
+                            this.transformFirstPersonItem(f, ModuleManager.getModuleByName("Animations").isEnabled() ? f1 : 0.0F);
                             this.doBlockTransformations();
                             break;
 
