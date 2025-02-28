@@ -1,6 +1,7 @@
 package net.minecraft.client.entity;
 
 import clarity.gay.Clarity;
+import clarity.gay.modules.ModuleManager;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.MovingSoundMinecartRiding;
 import net.minecraft.client.audio.PositionedSoundRecord;
@@ -654,7 +655,7 @@ public class EntityPlayerSP extends AbstractClientPlayer
         boolean flag2 = this.movementInput.moveForward >= f;
         this.movementInput.updatePlayerMoveState();
 
-        if (this.isUsingItem() && !this.isRiding())
+        if (this.isUsingItem() && !this.isRiding() && !ModuleManager.getModuleByName("NoSlow").isEnabled())
         {
             this.movementInput.moveStrafe *= 0.2F;
             this.movementInput.moveForward *= 0.2F;
