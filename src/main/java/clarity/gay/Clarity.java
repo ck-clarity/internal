@@ -1,14 +1,13 @@
 package clarity.gay;
 
 
-import clarity.gay.commands.CommandManager;
+import clarity.gay.commands.impl.CommandManager;
 import clarity.gay.extensions.FileManager;
-import clarity.gay.modules.Module;
-import clarity.gay.modules.ModuleManager;
+import clarity.gay.modules.api.Module;
+import clarity.gay.modules.impl.ModuleManager;
 import clarity.gay.utils.Fonts;
 import org.greenrobot.eventbus.EventBus;
 import org.lwjgl.opengl.Display;
-import clarity.gay.modules.Module;
 
 public class Clarity {
     private static final Clarity INSTANCE = new Clarity();

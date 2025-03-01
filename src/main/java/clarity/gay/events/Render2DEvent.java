@@ -1,3 +1,10 @@
 package clarity.gay.events;
 
-public class Render2DEvent {}
+import lombok.Getter;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.ScaledResolution;
+
+public class Render2DEvent {
+    @Getter
+    private final ScaledResolution sr = new ScaledResolution(Minecraft.getMinecraft());
+}
