@@ -16,7 +16,7 @@ public class CommandManager {
         registerCommands();
     }
     private void registerCommands() {
-        Reflections reflections = new Reflections("clarity.gay.commands");
+        Reflections reflections = new Reflections("clarity.gay.commands.impl");
         Set<Class<? extends Command>> commandClasses = reflections.getSubTypesOf(Command.class);
         for (Class<? extends Command> clazz : commandClasses) {
             CommandInfo commandInfo = clazz.getAnnotation(CommandInfo.class);
