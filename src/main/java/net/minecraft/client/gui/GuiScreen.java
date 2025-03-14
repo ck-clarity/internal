@@ -1,7 +1,7 @@
 package net.minecraft.client.gui;
 
 import clarity.gay.Clarity;
-import clarity.gay.commands.Command;
+import clarity.gay.commands.api.Command;
 import com.google.common.base.Splitter;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
